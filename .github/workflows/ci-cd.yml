@@ -1,0 +1,32 @@
+name: Deploy to hosting
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Environment
+        uses: shivammathur/setup-php@2.31.1
+        with:
+          php-version: 8.3
+      - name: Install Packages
+        run: composer install --no-dev
+      - name: Deploy to Server
+        uses: ngocquyhoang/laravel-deploy@laravel-custom-port
+        with:
+          host: secret.CLINIC_HOST
+          user: secret.CLINIC_USER
+          path: secret.CLINIC_PATH
+          owner: secret.CLINIC_OWNER
+#        env:
+#          APP_URL: https://clinic-dev.proviant-pay.ru/
+
