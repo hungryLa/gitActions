@@ -3,7 +3,7 @@ name: Deploy to hosting
 on:
   push:
     branches:
-      - dev
+      - main
   workflow_dispatch:
 
 
