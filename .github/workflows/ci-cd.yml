@@ -14,19 +14,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Setup Environment
-        uses: shivammathur/setup-php@2.31.1
-        with:
-          php-version: 8.3
-      - name: Install Packages
-        run: composer install --no-dev
-      - name: Deploy to Server
-        uses: ngocquyhoang/laravel-deploy@laravel-custom-port
+      - uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{secrets.CLINIC_HOST}}
-          user: ${{secrets.CLINIC_USER}}
-          path: ${{secrets.CLINIC_PATH}}
-          owner: ${{secrets.CLINIC_OWNER}}
+          username: ${{secrets.CLINIC_USER}}
+          port: ${{secrets.CLINIC_PATH}}
+          key: ${{secrets.CLINIC_OWNER}}
+          script: "cd /var/www/html && ./.scripts/deploy.sh"
+
+
 #        env:
 #          APP_URL: https://clinic-dev.proviant-pay.ru/
 
