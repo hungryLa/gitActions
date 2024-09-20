@@ -18,8 +18,7 @@ jobs:
         with:
           host: ${{secrets.CLINIC_HOST}}
           username: ${{secrets.CLINIC_USER}}
-          port: ${{secrets.CLINIC_PATH}}
-          key: ${{secrets.CLINIC_OWNER}}
+          key: ${{secrets.CLINIC_SSH}}
           script: "cd /var/www/html && ./.scripts/deploy.sh"
 
 
