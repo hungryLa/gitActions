@@ -16,7 +16,7 @@ jobs:
       - name: Test request
         uses: octokit/request-action@v2.x
         with:
-          route: GET /test
+          route: GET https://clinic-dev.proviant-pay.ru/api/test
 #      - uses: appleboy/git-push-action@v0.0.3
 #        with:
 #          remote:
@@ -26,7 +26,7 @@ jobs:
 #          port: ${{secrets.CLINIC_PORT}}
 #          username: ${{secrets.CLINIC_USER}}
 #          key: ${{secrets.CLINIC_SSH}}
-          script: "cd /var/www/html && ./.scripts/deploy.sh"
+#          script: "cd /var/www/html && ./.scripts/deploy.sh"
 
 
 #        env:
