@@ -5,7 +5,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+  sudo chmod +x ./var/www/www-root/data/www/clinic-dev.proviant-pay.ru/.scripts/deploy.sh
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
       - uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{secrets.CLINIC_HOST}}
+          port: ${{secrets.CLINIC_PORT}}
           username: ${{secrets.CLINIC_USER}}
           key: ${{secrets.CLINIC_SSH}}
           script: "cd /var/www/html && ./.scripts/deploy.sh"
