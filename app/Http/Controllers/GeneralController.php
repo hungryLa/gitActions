@@ -9,6 +9,6 @@ class GeneralController extends Controller
 {
 
     public function test(){
-        Log::info("Received git request");
+        Log::info("Received git request2");
     }
 }
