@@ -17,6 +17,8 @@ jobs:
         uses: octokit/request-action@v2.x
         with:
           route: GET https://clinic-dev.proviant-pay.ru/api/test
+        env:
+          GITHUB_TOKEN: ${{ secrets.CLINIC_GIT_TOKEN}}
 #      - uses: appleboy/git-push-action@v0.0.3
 #        with:
 #          remote:
