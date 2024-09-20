@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Log;
 class GeneralController extends Controller
 {
     public function test(){
-        Log::info("Received git request");
+        shell_exec('git pull origin main');
+        shell_exec('composer update');
+        shell_exec('php artisan migrate');
+        Log::info("Build Success");
     }
 }
