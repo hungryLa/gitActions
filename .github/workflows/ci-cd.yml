@@ -23,10 +23,10 @@ jobs:
       - name: Deploy to Server
         uses: ngocquyhoang/laravel-deploy@laravel-custom-port
         with:
-          host: secret.CLINIC_HOST
-          user: secret.CLINIC_USER
-          path: secret.CLINIC_PATH
-          owner: secret.CLINIC_OWNER
+          host: ${{secrets.CLINIC_HOST}}
+          user: ${{secrets.CLINIC_USER}}
+          path: ${{secrets.CLINIC_PATH}}
+          owner: ${{secrets.CLINIC_OWNER}}
 #        env:
 #          APP_URL: https://clinic-dev.proviant-pay.ru/
 
