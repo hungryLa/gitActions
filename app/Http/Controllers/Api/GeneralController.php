@@ -17,8 +17,7 @@ class GeneralController extends Controller
 //        $out2 = exec('composer update');
 //        $out3 = Artisan::call('migrate');
         Process::run('bash deploy.sh');
-        $out = Process::run('cd /var/www/www-root/data/www/clinic-dev.proviant-pay.ru/');
-        Log::info($out);
+        Process::run('cd /var/www/www-root/data/www/clinic-dev.proviant-pay.ru/');
         Log::info("Build Success");
 //        Log::info("Out2 ". $out2);
         Log::info("Out1 ". $out1);
