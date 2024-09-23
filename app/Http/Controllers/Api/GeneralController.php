@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Artisan;
 
 class GeneralController extends Controller
 {
@@ -13,7 +14,7 @@ class GeneralController extends Controller
         $out5 = exec('php -v');
         $out4 = exec('pwd');
         $out2 = exec('composer update');
-        $out3 = exec('php artisan migrate');
+        $out3 = Artisan::call('migrate');
         Log::info("Build Success");
 //        Log::info("Out1". $out1);
         Log::info("Out5". $out5);
