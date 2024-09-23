@@ -19,3 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/test', [GeneralController::class, 'test']);
+
+Route::post('/updateProject', [GeneralController::class, 'updateProject'])
+    ->name('updateProject');

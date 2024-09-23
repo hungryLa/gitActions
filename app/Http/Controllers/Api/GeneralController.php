@@ -21,4 +21,11 @@ class GeneralController extends Controller
         Log::info("Out1 ". $out1);
 //        Log::info("Out3 ". $out3);
     }
+
+    public function updateProject(){
+        $out1 = shell_exec('git pull origin main');
+        return response()->json([
+            'message' => 'Success'
+        ]);
+    }
 }
